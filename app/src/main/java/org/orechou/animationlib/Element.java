@@ -32,11 +32,10 @@ public abstract class Element extends Drawable implements Animatable {
 
     private boolean mHasReadyAnimators = false;
 
-
     /**
      * 动画相关，使用 ValueAnimator
      */
-    private List<ValueAnimator> mAnimators;
+    protected List<ValueAnimator> mAnimators;
 
     private Map<ValueAnimator, ValueAnimator.AnimatorUpdateListener> mUpdateListenerMap = new HashMap<>();
 
@@ -115,6 +114,14 @@ public abstract class Element extends Drawable implements Animatable {
         }
     }
 
+    public void addUpdateListener(ValueAnimator animator, ValueAnimator.AnimatorUpdateListener updateListener){
+        mUpdateListenerMap.put(animator,updateListener);
+    }
+
+    public void postInvalidate() {
+        invalidateSelf();
+    }
+
     @Override
     public boolean isRunning() {
         boolean res = true;
@@ -133,11 +140,33 @@ public abstract class Element extends Drawable implements Animatable {
         return res;
     }
 
+    @Override
+    protected void onBoundsChange(Rect bounds) {
+        super.onBoundsChange(bounds);
+        this.setDrawBounds(bounds);
+    }
+
     public Rect getDrawBounds() {
         return mDrawBounds;
     }
 
     public void setDrawBounds(Rect drawBounds) {
-        mDrawBounds = drawBounds;
+        mDrawBounds = new Rect(drawBounds);
+    }
+
+    public int getWidth() {
+        return mDrawBounds.width();
+    }
+
+    public int getHeight() {
+        return mDrawBounds.height();
+    }
+
+    public int centerX(){
+        return mDrawBounds.centerX();
+    }
+
+    public int centerY(){
+        return mDrawBounds.centerY();
     }
 }
