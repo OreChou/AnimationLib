@@ -13,6 +13,10 @@ import org.orechou.animationlib.elements.ArcRotateAlphaElement;
 import org.orechou.animationlib.elements.ArcRotateElement;
 import org.orechou.animationlib.elements.CircleArcRotateElement;
 import org.orechou.animationlib.elements.CircleGridWaveElement;
+import org.orechou.animationlib.elements.CircleScaleAlphaElement;
+import org.orechou.animationlib.elements.CircleScaleAlphaMultipleElement;
+import org.orechou.animationlib.elements.CircleScaleRotateElement;
+import org.orechou.animationlib.elements.CircleTranslateElement;
 import org.orechou.animationlib.elements.CircleWaveElement;
 import org.orechou.animationlib.elements.PacmanElement;
 import org.orechou.animationlib.elements.SquareRotateElement;
@@ -63,6 +67,18 @@ public class MainActivity extends AppCompatActivity {
                     case ArcRotateAlphaElement.TAG:
                         element = new ArcRotateAlphaElement();
                         break;
+                    case CircleScaleAlphaElement.TAG:
+                        element = new CircleScaleAlphaElement();
+                        break;
+                    case CircleScaleAlphaMultipleElement.TAG:
+                        element = new CircleScaleAlphaMultipleElement();
+                        break;
+                    case CircleScaleRotateElement.TAG:
+                        element = new CircleScaleRotateElement();
+                        break;
+                    case CircleTranslateElement.TAG:
+                        element = new CircleTranslateElement();
+                        break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + elementName);
                 }
@@ -94,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
             CircleGridWaveElement.TAG,
             PacmanElement.TAG,
             SquareRotateElement.TAG,
-            ArcRotateAlphaElement.TAG
+            ArcRotateAlphaElement.TAG,
+            CircleScaleAlphaElement.TAG,
+            CircleScaleAlphaMultipleElement.TAG,
+            CircleScaleRotateElement.TAG,
+            CircleTranslateElement.TAG
     };
 }
