@@ -39,7 +39,6 @@ public class PacmanElement extends Element {
         canvas.translate(x, y);
         canvas.rotate(mClockwiseDegree);
         RectF rectF = new RectF(-x + spacing, -y + spacing, x - spacing, y - spacing);
-        Log.d(TAG, "RectF: " + rectF.toString());
         canvas.drawArc(rectF, 30, 270, true, paint);
         canvas.restore();
         canvas.save();

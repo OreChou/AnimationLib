@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CircleScaleAlphaElement extends Element {
 
-    public static final String TAG = "CircleScaleAlphaElement";
+    private static final String TAG = "CircleScaleAlphaElement";
 
     private int mSpacing = 20;
 

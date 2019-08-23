@@ -20,8 +20,12 @@ import org.orechou.animationlib.elements.CircleTranslateElement;
 import org.orechou.animationlib.elements.CircleWaveElement;
 import org.orechou.animationlib.elements.PacmanElement;
 import org.orechou.animationlib.elements.SquareRotateElement;
+import org.orechou.animationlib.utils.ClassLoaderUtils;
+import org.orechou.animationlib.utils.ReflectionUtils;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     RecyclerView mRecyclerView;
 
@@ -30,10 +34,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mRecyclerView = findViewById(R.id.recycler_view);
-
         mRecyclerView.setLayoutManager(new GridLayoutManager(this,4));
         mRecyclerView.setAdapter(new RecyclerView.Adapter<ElementHolder>() {
-
             @NonNull
             @Override
             public ElementHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,44 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onBindViewHolder(@NonNull ElementHolder holder, int position) {
                 String elementName = ELEMENTS[position];
-                Element element;
-                switch (elementName) {
-                    case ArcRotateElement.TAG:
-                        element = new ArcRotateElement();
-                        break;
-                    case CircleArcRotateElement.TAG:
-                        element = new CircleArcRotateElement();
-                        break;
-                    case CircleWaveElement.TAG:
-                        element = new CircleWaveElement();
-                        break;
-                    case CircleGridWaveElement.TAG:
-                        element = new CircleGridWaveElement();
-                        break;
-                    case PacmanElement.TAG:
-                        element = new PacmanElement();
-                        break;
-                    case SquareRotateElement.TAG:
-                        element = new SquareRotateElement();
-                        break;
-                    case ArcRotateAlphaElement.TAG:
-                        element = new ArcRotateAlphaElement();
-                        break;
-                    case CircleScaleAlphaElement.TAG:
-                        element = new CircleScaleAlphaElement();
-                        break;
-                    case CircleScaleAlphaMultipleElement.TAG:
-                        element = new CircleScaleAlphaMultipleElement();
-                        break;
-                    case CircleScaleRotateElement.TAG:
-                        element = new CircleScaleRotateElement();
-                        break;
-                    case CircleTranslateElement.TAG:
-                        element = new CircleTranslateElement();
-                        break;
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + elementName);
-                }
+                Element element = (Element) ReflectionUtils.newInstance(ClassLoaderUtils.getClazz(elementName));
                 holder.elementView.setElement(element);
             }
 
@@ -104,16 +69,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static final String[] ELEMENTS = new String[] {
-            ArcRotateElement.TAG,
-            CircleArcRotateElement.TAG,
-            CircleWaveElement.TAG,
-            CircleGridWaveElement.TAG,
-            PacmanElement.TAG,
-            SquareRotateElement.TAG,
-            ArcRotateAlphaElement.TAG,
-            CircleScaleAlphaElement.TAG,
-            CircleScaleAlphaMultipleElement.TAG,
-            CircleScaleRotateElement.TAG,
-            CircleTranslateElement.TAG
+            ArcRotateElement.class.getSimpleName(),
+            CircleArcRotateElement.class.getSimpleName(),
+            CircleWaveElement.class.getSimpleName(),
+            CircleGridWaveElement.class.getSimpleName(),
+            PacmanElement.class.getSimpleName(),
+            SquareRotateElement.class.getSimpleName(),
+            ArcRotateAlphaElement.class.getSimpleName(),
+            CircleScaleAlphaElement.class.getSimpleName(),
+            CircleScaleAlphaMultipleElement.class.getSimpleName(),
+            CircleScaleRotateElement.class.getSimpleName(),
+            CircleTranslateElement.class.getSimpleName()
     };
 }

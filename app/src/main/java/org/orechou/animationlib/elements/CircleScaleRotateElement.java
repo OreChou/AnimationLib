@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CircleScaleRotateElement extends Element {
 
-    public static final String TAG = "CircleScaleRotateElement";
+    private static final String TAG = "CircleScaleRotateElement";
 
     private float mScale = 1;
 

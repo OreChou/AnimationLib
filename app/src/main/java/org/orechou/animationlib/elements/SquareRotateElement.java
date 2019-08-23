@@ -37,12 +37,8 @@ public class SquareRotateElement extends Element {
         mCamera.getMatrix(mMatrix);
         mCamera.restore();
 
-        // 让旋转的中心在屏幕中心
-        Log.d(TAG, "getMatrix:" + mMatrix);
         mMatrix.preTranslate(-centerX(), -centerY());
-        Log.d(TAG, "preTranslate:" + mMatrix);
         mMatrix.postTranslate(centerX(), centerY());
-        Log.d(TAG, "postTranslate:" + mMatrix);
         canvas.concat(mMatrix);
 
         canvas.drawRect(new RectF(getWidth() / 6, getHeight() / 6, getWidth() / 6 * 5, getHeight() / 6 * 5), paint);

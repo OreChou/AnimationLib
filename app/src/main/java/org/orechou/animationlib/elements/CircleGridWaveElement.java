@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class CircleGridWaveElement extends Element {
 
-    public static final String TAG = "CircleGridWaveElement";
+    private static final String TAG = "CircleGridWaveElement";
 
     private static final float SCALE = 1.0f;
 

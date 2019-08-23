@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class CircleArcRotateElement extends Element {
 
-    public static final String TAG = "CircleArcRotateElement";
+    private static final String TAG = "CircleArcRotateElement";
 
     private int mDegree = 0;
 

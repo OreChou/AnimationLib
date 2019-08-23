@@ -3,7 +3,6 @@ package org.orechou.animationlib.elements;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 
 public class ArcRotateElement extends Element {
 
-    public static final String TAG = "ArcRotateElement";
+    private static final String TAG = "ArcRotateElement";
 
     private float mScale = 1f;
 

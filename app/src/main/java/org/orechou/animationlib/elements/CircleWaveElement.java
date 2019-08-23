@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CircleWaveElement extends Element {
 
-    public static final String TAG = "CircleWaveElement";
+    private static final String TAG = "CircleWaveElement";
 
     private static final float SCALE = 1.0f;
 

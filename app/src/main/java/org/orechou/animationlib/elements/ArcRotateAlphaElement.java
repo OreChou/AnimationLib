@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ArcRotateAlphaElement extends Element {
 
-    public static final String TAG = "ArcRotateAlphaElement";
+    private static final String TAG = "ArcRotateAlphaElement";
 
     private int mAlpha = 255;
 

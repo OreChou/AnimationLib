@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class CircleTranslateElement extends Element {
 
-    public static final String TAG = "CircleTranslateElement";
+    private static final String TAG = "CircleTranslateElement";
 
     private int mSpacing = 40;
 
